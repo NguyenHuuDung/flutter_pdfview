@@ -22,6 +22,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
+    print("");
     super.initState();
     fromAsset('assets/corrupted.pdf', 'corrupted.pdf').then((f) {
       setState(() {
@@ -107,7 +108,7 @@ class _MyAppState extends State<MyApp> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => PDFScreen(path: pathPDF),
+                          builder: (context) => PDFScreen(path: remotePDFpath),
                         ),
                       );
                     }
@@ -246,21 +247,21 @@ class _PDFScreenState extends State<PDFScreen> with WidgetsBindingObserver {
                 )
         ],
       ),
-      floatingActionButton: FutureBuilder<PDFViewController>(
-        future: _controller.future,
-        builder: (context, AsyncSnapshot<PDFViewController> snapshot) {
-          if (snapshot.hasData) {
-            return FloatingActionButton.extended(
-              label: Text("Go to ${pages! ~/ 2}"),
-              onPressed: () async {
-                await snapshot.data!.setPage(pages! ~/ 2);
-              },
-            );
-          }
+      // floatingActionButton: FutureBuilder<PDFViewController>(
+      //   future: _controller.future,
+      //   builder: (context, AsyncSnapshot<PDFViewController> snapshot) {
+      //     if (snapshot.hasData) {
+      //       return FloatingActionButton.extended(
+      //         label: Text("Go to ${pages! ~/ 2}"),
+      //         onPressed: () async {
+      //           await snapshot.data!.setPage(pages! ~/ 2);
+      //         },
+      //       );
+      //     }
 
-          return Container();
-        },
-      ),
+      //     return Container();
+      //   },
+      // ),
     );
   }
 }
