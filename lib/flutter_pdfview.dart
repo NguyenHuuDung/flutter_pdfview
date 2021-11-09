@@ -86,7 +86,6 @@ class _PDFViewState extends State<PDFView> {
   @override
   Widget build(BuildContext context) {
     print("pdf");
-
     if (defaultTargetPlatform == TargetPlatform.android) {
       return AndroidView(
         viewType: 'plugins.endigo.io/pdfview',
