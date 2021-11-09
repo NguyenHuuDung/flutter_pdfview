@@ -85,7 +85,7 @@ class _PDFViewState extends State<PDFView> {
       Completer<PDFViewController>();
   @override
   Widget build(BuildContext context) {
-    print("đây là pdf");
+    print("pdf");
 
     if (defaultTargetPlatform == TargetPlatform.android) {
       return AndroidView(
